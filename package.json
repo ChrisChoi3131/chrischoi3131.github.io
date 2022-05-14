@@ -1,28 +1,33 @@
 {
-  "name": "chrischoi3131.github.io",
+  "name": "webportfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy": "del-cli --force ./chrischoi3131.github.io/*"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ChrisChoi3131/chrischoi3131.github.io.git"
+    "url": "git+https://github.com/ChrisChoi3131/webPortfolio.git"
   },
-  "author": "",
+  "author": "Yongrak Choi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ChrisChoi3131/chrischoi3131.github.io/issues"
+    "url": "https://github.com/ChrisChoi3131/webPortfolio/issues"
   },
-  "homepage": "https://github.com/ChrisChoi3131/chrischoi3131.github.io#readme",
+  "homepage": "https://github.com/ChrisChoi3131/webPortfolio#readme",
+  "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.29.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.2"
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
+    "stylelint": "^14.8.2",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended": "^7.0.0",
+    "stylelint-config-standard": "^25.0.0"
   }
 }
