@@ -13,7 +13,8 @@
   const navbarHamburgerMenu = document.querySelector('.navbar__hamburgerMenu');
   const hamburgerMenuBlur = document.querySelector('.navbar__hamburgerMenuBlur');
   const btnCloseHamburgerMenu = document.querySelector('.hamburgerMenu__btnClose');
-  const cardItems = document.querySelectorAll('.card__item');
+  const popupAnimateElements = document.querySelectorAll('.popupAnimate');
+  const btnContact = document.querySelector('.home__btnContact');
   let lastScrollY = 0;
   let isFixedHeader = true;
   function openHamburgerMenu() {
@@ -71,6 +72,11 @@
         child.style.color = 'var(--color-grey)';
       }
     }
+  });
+  btnContact.addEventListener('click', () => {
+    const element = document.getElementById('contact');
+    const top = element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - 100;
+    window.scrollTo({ top, behavior: 'smooth' });
   });
   switchFixHeader.addEventListener('click', e => {
     if (e.target.tagName !== 'INPUT') return;
@@ -167,12 +173,12 @@
     const footerObserver = new IntersectionObserver(callbackObserver, footerObserverOptions);
     sections.forEach(section => footerObserver.observe(section));
   }
-  const setCardItemObservers = new Set();
+  const popupAnimateEleObservers = new Set();
   function initializeScrollPopUpElement() {
-    setCardItemObservers.forEach(cardItemObserver => {
-      cardItemObserver.disconnect();
+    popupAnimateEleObservers.forEach(popupAnimateEleObserver => {
+      popupAnimateEleObserver.disconnect();
     });
-    setCardItemObservers.clear();
+    popupAnimateEleObservers.clear();
     const callbackObserver = entries => {
       entries.forEach(entry => {
         const top = entry.boundingClientRect.top;
@@ -184,19 +190,19 @@
         }
       });
     };
-    cardItems.forEach(cardItem => {
-      const ratioElementHeight = cardItem.offsetHeight / window.innerHeight;
+    popupAnimateElements.forEach(popupAnimateElement => {
+      const ratioElementHeight = popupAnimateElement.offsetHeight / window.innerHeight;
       let threshold = 0.9;
       if (ratioElementHeight >= 0.9) {
         threshold = 0.3;
       } else if (ratioElementHeight >= 0.5) {
         threshold = 0.5;
       }
-      const cardItemObserver = new IntersectionObserver(callbackObserver, {
+      const observer = new IntersectionObserver(callbackObserver, {
         threshold,
       });
-      setCardItemObservers.add(cardItemObserver);
-      cardItemObserver.observe(cardItem);
+      popupAnimateEleObservers.add(observer);
+      observer.observe(popupAnimateElement);
     });
   }
 })();
