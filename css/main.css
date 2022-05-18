@@ -362,8 +362,13 @@ input:checked + .slider:before {
 
 #experience {
   align-items: center;
-  /* margin-left: 15%;
-  margin-right: 15%; */
+}
+#experience h1,
+h2,
+h3,
+h4,
+p {
+  color: var(--color-white);
 }
 
 .experience__title {
@@ -373,6 +378,16 @@ input:checked + .slider:before {
   -webkit-text-fill-color: transparent;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+}
+.experience__container {
+  background-color: #050d21;
+  height: 150vh;
+  width: 60vw;
+  border-radius: 20px;
+  text-align: center;
+}
+#work {
+  align-items: center;
 }
 
 .work__title {
@@ -406,11 +421,13 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 1rem 1.7rem;
   border-radius: 10px;
   box-shadow: 5px 5px 20px #6d6b6b6b;
 }
 #testimonials .card__btnSeeMore {
+  bottom: 0;
+  right: 0;
   display: flex;
   cursor: pointer;
   justify-content: flex-end;
@@ -446,15 +463,15 @@ input:checked + .slider:before {
 }
 #testimonials .card__contentsContainer * > h4 {
   color: var(--color-white);
-  margin: 10px 0;
+  margin: 20px 0;
 }
 #testimonials .card__avatarContainer {
   display: flex;
   align-items: center;
 }
 #testimonials .card__avatarContainer > * {
-  height: clamp(30px, 1.5vw, 40px);
-  height: clamp(30px, 1.5vw, 40px);
+  height: clamp(30px, 2.5vw, 40px);
+  height: clamp(30px, 2.5vw, 40px);
   border-radius: 50%;
   border: 2px solid var(--color-white);
 }
@@ -489,7 +506,7 @@ input:checked + .slider:before {
   grid-row: 1/2;
 }
 #testimonials .card__item:nth-child(2) p {
-  -webkit-line-clamp: 10;
+  -webkit-line-clamp: 9;
 }
 #testimonials .card__item:nth-child(3) {
   background-color: #207087;
@@ -604,7 +621,10 @@ input:checked + .slider:before {
 }
 .popupAnimate {
   opacity: 0;
-  transition: all 0.7s ease;
+  transition: all 0.7s ease 0s;
+}
+.popupAnimate.delayAnimation {
+  transition-delay: var(--animation-duration-long);
 }
 .popupAnimate.active {
   opacity: 1;
@@ -616,7 +636,7 @@ input:checked + .slider:before {
     flex-direction: column;
   }
   #testimonials .card__item {
-    padding: 1rem 1.5rem;
+    padding: 0.8rem 1.4rem;
     max-height: 300px;
     display: -webkit-box;
     -webkit-box-orient: vertical;

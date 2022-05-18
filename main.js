@@ -15,6 +15,7 @@
   const btnCloseHamburgerMenu = document.querySelector('.hamburgerMenu__btnClose');
   const popupAnimateElements = document.querySelectorAll('.popupAnimate');
   const btnContact = document.querySelector('.home__btnContact');
+  const experienceContainer = document.querySelector('.experience__container');
   let lastScrollY = 0;
   let isFixedHeader = true;
   function openHamburgerMenu() {
@@ -73,6 +74,7 @@
       }
     }
   });
+  // document.addEventListener('scroll', () => { });
   btnContact.addEventListener('click', () => {
     const element = document.getElementById('contact');
     const top = element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - 100;
@@ -115,6 +117,36 @@
   btnHamburger.addEventListener('click', () => openHamburgerMenu());
   hamburgerMenuBlur.addEventListener('click', () => closeHamburgerMenu());
   btnCloseHamburgerMenu.addEventListener('click', () => closeHamburgerMenu());
+  {
+    const callbackObserver = entries => {
+      entries.forEach(entry => {
+        const top = entry.boundingClientRect.top;
+        console.log(entry);
+        if (entry.isIntersecting) {
+          console.log(new Date().getSeconds(), entry.target);
+          window.addEventListener('scroll', test);
+        } else {
+          console.log(new Date().getSeconds(), entry.target, 1);
+          window.removeEventListener('scroll', test);
+        }
+      });
+    };
+    function test() {
+      const top = experienceContainer.getBoundingClientRect().top;
+      const ratio = (window.innerHeight - top) / (window.innerHeight - navbar.offsetHeight);
+      const ratioRadius = 1 - (ratio - 0.6) / 0.4;
+      if (top < 0) return;
+      if (ratio >= 0.6) {
+        experienceContainer.style.width = `${ratio * 100}vw`;
+        // console.log(ratioRadius);
+        experienceContainer.style['border-radius'] = `${ratioRadius * 20}px`;
+      }
+    }
+    const observer = new IntersectionObserver(callbackObserver, {
+      threshold: 0,
+    });
+    observer.observe(document.querySelector('.experience__container'));
+  }
 
   function initializeScrollFooterText() {
     const mapEntries = new Map();
