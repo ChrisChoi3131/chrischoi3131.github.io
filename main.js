@@ -19,7 +19,7 @@
   let lastScrollY = 0;
   let isFixedHeader = true;
   function openHamburgerMenu() {
-    document.querySelector('.navbar__btnHamburgerContents').classList.remove('active');
+    document.querySelector('.navbar__lineInbtnHamburger').classList.remove('active');
     hamburgerMenuContainer.classList.add('active');
     hamburgerMenuBlur.classList.add('active');
     document.body.classList.add('blur');
@@ -28,7 +28,7 @@
     }
   }
   function closeHamburgerMenu() {
-    document.querySelector('.navbar__btnHamburgerContents').classList.add('active');
+    document.querySelector('.navbar__lineInbtnHamburger').classList.add('active');
     hamburgerMenuContainer.classList.remove('active');
     hamburgerMenuBlur.classList.remove('active');
     document.body.classList.remove('blur');
@@ -36,18 +36,18 @@
       child.classList.remove('active');
     }
   }
-  window.addEventListener('load', () => {
-    document.body.classList.remove('before-load');
+  window.addEventListener('load', async () => {
     initializeScrollPopUpElement();
     initializeScrollFooterText();
+    await initializeWidenBackgroundSection();
     setTimeout(() => {
-      document.querySelector('.loading').addEventListener('transitionend', e => {
-        e.currentTarget.style.display = 'none';
-      });
+      document.body.classList.remove('beforeLoad');
+      document.querySelector('.loading').style.display = 'none';
     }, 300);
   });
-  window.addEventListener('resize', () => {
+  window.addEventListener('resize', async () => {
     initializeScrollPopUpElement();
+    await initializeWidenBackgroundSection();
   });
   document.addEventListener('scroll', () => {
     if (isFixedHeader === true) return;
@@ -117,35 +117,45 @@
   btnHamburger.addEventListener('click', () => openHamburgerMenu());
   hamburgerMenuBlur.addEventListener('click', () => closeHamburgerMenu());
   btnCloseHamburgerMenu.addEventListener('click', () => closeHamburgerMenu());
+  const widenBackgroundSizeSet = new Set(document.querySelectorAll('.scaleUpBg'));
+  function initializeWidenBackgroundSection() {
+    new Promise(resolve => {
+      widenBackgroundSizeSet.forEach(element => {
+        widenBackgroundSize(element);
+      });
+      resolve();
+    });
+  }
+  function callbackWidenBackgroundSection() {
+    widenBackgroundSize(experienceContainer);
+  }
   {
     const callbackObserver = entries => {
       entries.forEach(entry => {
-        const top = entry.boundingClientRect.top;
-        console.log(entry);
-        if (entry.isIntersecting) {
-          console.log(new Date().getSeconds(), entry.target);
-          window.addEventListener('scroll', test);
-        } else {
-          console.log(new Date().getSeconds(), entry.target, 1);
-          window.removeEventListener('scroll', test);
-        }
+        if (entry.isIntersecting) window.addEventListener('scroll', callbackWidenBackgroundSection);
+        else window.removeEventListener('scroll', callbackWidenBackgroundSection);
       });
     };
-    function test() {
-      const top = experienceContainer.getBoundingClientRect().top;
-      const ratio = (window.innerHeight - top) / (window.innerHeight - navbar.offsetHeight);
-      const ratioRadius = 1 - (ratio - 0.6) / 0.4;
-      if (top < 0) return;
-      if (ratio >= 0.6) {
-        experienceContainer.style.width = `${ratio * 100}vw`;
-        // console.log(ratioRadius);
-        experienceContainer.style['border-radius'] = `${ratioRadius * 20}px`;
-      }
-    }
     const observer = new IntersectionObserver(callbackObserver, {
       threshold: 0,
     });
-    observer.observe(document.querySelector('.experience__container'));
+    observer.observe(experienceContainer);
+  }
+  /*
+TODO: Add parameter 'target element width'
+*/
+
+  function widenBackgroundSize(element) {
+    const top = element.getBoundingClientRect().top;
+    const ratio = (window.innerHeight - top) / (window.innerHeight - navbar.offsetHeight);
+    const ratioRadius = 1 - (ratio - 0.6) / 0.4;
+    if (top <= 0) {
+      element.style.width = '100vw';
+      element.style['border-radius'] = 0;
+    } else if (ratio >= 0.5) {
+      element.style.width = `${ratio * 100}vw`;
+      element.style['border-radius'] = `${ratioRadius * 20}px`;
+    }
   }
 
   function initializeScrollFooterText() {

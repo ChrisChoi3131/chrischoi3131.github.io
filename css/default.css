@@ -2,6 +2,7 @@
 
 :root {
   --color-white: #ffffff;
+  --color-green: #1ed56f;
   --color-grey: #6e6e73;
   --color-purple: #733fc8;
   --color-light-purple: #9867f0;
@@ -38,6 +39,11 @@ html {
   /* letter-spacing: -0.05em; */
 }
 
+section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 40px;
+}
 * {
   box-sizing: border-box;
 }
@@ -53,9 +59,12 @@ a {
   color: var(--color-black);
   font-size: var(--font-regular);
 }
-ul {
+ul,
+ol {
   list-style: none;
   padding-left: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 button {
@@ -124,4 +133,10 @@ p {
   font-size: var(--font-semi-micro);
   font-weight: var(--weight-regular);
   color: var(--color-black);
+}
+
+@media screen and (max-width: 1280px) {
+  section {
+    padding: 16px 16px;
+  }
 }

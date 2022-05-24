@@ -1,0 +1,7 @@
+.about__title {
+  color: var(--color-pink);
+}
+
+.about__description {
+  width: 60%;
+}
