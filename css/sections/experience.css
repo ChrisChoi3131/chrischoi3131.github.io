@@ -1,25 +1,19 @@
 @charset 'utf-8';
 
-#experience h1,
-h2,
-h3,
-h4,
-p {
+.experience__container h1,
+.experience__container h2,
+.experience__container h4,
+.experience__container p {
   color: var(--color-white);
   margin: 4px 0px;
 }
 
 #experience h4::before {
-  /* content: "•"; */
+  content: "-";
   margin-right: 4px;
 }
 .experience__title {
-  background: linear-gradient(-70deg, var(--color-pink) 40%, var(--color-light-purple) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+  color: var(--color-pink) !important;
 }
 .experience__container {
   height: 100%;
@@ -78,7 +72,7 @@ p {
   position: absolute;
   top: 0;
   left: 50%;
-  height: 101%;
+  height: 105%;
   width: 2px;
   background-color: var(--color-light-grey);
 }
@@ -110,6 +104,7 @@ p {
   cursor: pointer;
   color: var(--color-green);
 }
+
 #experience .tooltip:hover .tooltiptext {
   opacity: 1;
   visibility: visible;
@@ -134,46 +129,86 @@ p {
   top: 50vh;
   right: 0;
 }
+.img {
+  z-index: 10;
+  height: 91%;
+  width: 91%;
+  border-radius: 10px;
+}
 .stickyContainer {
-  height: 80%;
+  padding-top: 200px;
+  z-index: 1;
   width: 50%;
   top: 0;
 }
 .stickyContainer.stickyLeft {
   left: 0;
+  height: 90%;
 }
-
 .stickyContainer.stickyRight {
   right: 0;
+  height: 90%;
 }
 @media screen and (max-width: 1280px) {
   #experience .contents {
-    min-width: 100vw;
+    /* min-width: 100vw; */
   }
   #experience .content {
-    min-width: 0;
     padding: 0 40px 0 40px;
-    width: 100vw;
+    width: 100%;
     min-height: 50px;
   }
   #experience .left-line::before {
     left: 20px;
+    height: 105%;
+  }
+  #experience .right-line {
+    text-align: end;
+  }
+  #experience .right-line::before {
+    right: 20px;
+    height: 105%;
   }
   #experience .detail {
-    width: 100%;
+    width: 50%;
   }
+
   #experience .content.space {
     height: 50px;
+  }
+  .spaceNeedle {
+    margin-top: 15%;
+    height: 100%;
+    width: 100%;
+    fill: white;
   }
   #experience .tooltip .tooltiptext {
     width: 40vw;
   }
+  .stickyContainer {
+    padding-top: 100px;
+  }
+  .stickyContainer.stickyLeft {
+    left: 0;
+    height: 95%;
+  }
+  .stickyContainer.stickyRight {
+    right: 0;
+    height: 95%;
+  }
+}
+@media screen and (max-width: 600px) {
+  #experience .content.space.mobile-height {
+    height: 200px;
+  }
   .objSticky {
-    top: 80vh;
-    right: 50vw;
+    top: 50vh;
   }
   .stickyContainer {
-    height: 93%;
+    width: 100%;
+    height: 120%;
+  }
+  #experience .detail {
     width: 100%;
   }
 }

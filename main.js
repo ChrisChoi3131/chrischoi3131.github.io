@@ -16,6 +16,8 @@
   const popupAnimateElements = document.querySelectorAll('.popupAnimate');
   const btnContact = document.querySelector('.home__btnContact');
   const experienceContainer = document.querySelector('.experience__container');
+  const details = document.querySelectorAll('.detail');
+
   let lastScrollY = 0;
   let isFixedHeader = true;
   function openHamburgerMenu() {
@@ -126,14 +128,25 @@
       resolve();
     });
   }
-  function callbackWidenBackgroundSection() {
+  function callbackExperienceSection() {
     widenBackgroundSize(experienceContainer);
+    changeImageByScroll();
+  }
+  function changeImageByScroll() {
+    const imgFirst = document.querySelector('#imgFirst');
+    const imgSecond = document.querySelector('#imgSecond');
+    for (let i = 0; i < details.length; i++) {
+      const diff1 = Math.abs(imgFirst.getBoundingClientRect().top - details[i].getBoundingClientRect().top);
+      const diff2 = Math.abs(imgSecond.getBoundingClientRect().top - details[i].getBoundingClientRect().top);
+      if (diff1 < 100 && details[i].dataset.idx) imgFirst.src = `imgs/${details[i].dataset.idx}.png`;
+      if (diff2 < 100 && details[i].dataset.idx) imgSecond.src = `imgs/${details[i].dataset.idx}.png`;
+    }
   }
   {
     const callbackObserver = entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) window.addEventListener('scroll', callbackWidenBackgroundSection);
-        else window.removeEventListener('scroll', callbackWidenBackgroundSection);
+        if (entry.isIntersecting) window.addEventListener('scroll', callbackExperienceSection);
+        else window.removeEventListener('scroll', callbackExperienceSection);
       });
     };
     const observer = new IntersectionObserver(callbackObserver, {
