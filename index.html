@@ -81,7 +81,7 @@
       </div>
       <h1 class="home__title">I'm Yongrak Choi, <br />I build things for the Web.</h1>
       <h3 class="home__description">
-        I’m a software engineer with an Agile mindset. <br />
+        Forward-looking, enthusiastic Software Engineer with an Agile Mindset. <br />
         I recently immigrated to the US as a permanent resident. <br />
         Currently, I'm looking for a job in the greater Seattle area.<br />
       </h3>
@@ -89,12 +89,17 @@
     </section>
     <section id="about" class="d-flex flex-column" data-idx="1">
       <h1 class="about__title popupAnimate">About Me</h1>
-      <div>
-        <h3 class="about__description">
-          Forward-looking, enthusiastic Software Engineer with an Agile Mindset. I have 3+ years of programming background in creating and developing software solutions to enhance business
-          productivity. Before becoming a software engineer, I was a SAP Portal Product Manager(4+ years). I know the importance of skills, collaboration, and customers through my experience. I
-          recently immigrated to the US as a permanent resident. Currently, I'm looking for a job in the greater Seattle area.
-        </h3>
+      <div class="about__container d-flex">
+        <div class="about__descContainer">
+          <h3 class="about__description">
+            I'm Yongrak Choi. My English name is Chris. I have 3+ years of programming background in creating and developing software solutions to enhance business
+            productivity. Before becoming a software engineer, I was a SAP Portal Product Manager(4+ years). I know the importance of skills, collaboration, and customers through my experience.I
+            recently immigrated to the US as a permanent resident. Currently, I'm looking for a job in the greater Seattle area.
+          </h3>
+        </div>
+        <div class="about__imgContainer d-flex flex-justify-center">
+          <img class="about__img" src="imgs/aboutme.jpeg"/>
+        </div>
       </div>
     </section>
     <section id="experience" class="d-flex flex-column flex-items-center" data-idx="2">
@@ -105,7 +110,7 @@
             <h1 class="experience__title popupAnimate">Experience</h1>
           </div>
           <div class="position-relative">
-            <div class="stickyContainer stickyRight position-absolute">
+            <div class="stickyContainer stickyRight position-absolute pt">
               <div class="objSticky position-sticky"><img id ="imgFirst" class ="img popupAnimate" src="imgs/1.png"></img></div>
             </div>
             <div class="content"></div>
@@ -127,7 +132,7 @@
             <div class="content left-line space popupAnimate"></div>
             <div class="content left-line space popupAnimate"></div>
             <div class="content left-line pr-2">
-              <div class="detail">
+              <div class="detail" data-idx="0">
                 <h2 class="fc-blue">Changed job position as a Software Engineer</h2>
                 <h3 class="color-fc-light-grey my-0">Mar 2018</h3>
                 <h4>I wanted to invent something that will change the world.</h4>
@@ -137,7 +142,7 @@
             <div class="content left-line space"></div>
             <div class="content left-line space"></div>
             <div class="content left-line pr-2">
-              <div class="detail" data-idx="0">
+              <div class="detail" >
                 <h2 class="fc-blue">Developed an Android Web App</h2>
                 <h3 class="color-fc-light-grey my-0">Mar 2018 - Nov 2019</h3>
                 <h4>Developed an Android App using WebView, HTML, jQuery and CSS for Samsung Electronic's Warehouses.</h4>
@@ -176,7 +181,7 @@
             <div class="content space"></div>
             <div class="content space"></div>
             <div class="content right-line d-flex flex-justify-end">
-              <div class="detail">
+              <div class="detail" data-idx="3">
                 <h2 class="fc-green">Full Stack Software Engineer & Scrum Master at Hackingzone</h2>
                 <h3 class="color-fc-light-grey my-0">Nov 2019 - Nov 2021</h3>
                 <div class="mt-3"></div>
@@ -185,7 +190,7 @@
             <div class="content right-line space"></div>
             <div class="content right-line space"></div>
             <div class="content right-line d-flex flex-justify-end">
-              <div class="detail" data-idx="3">
+              <div class="detail"  data-idx="4">
                 <h2 class="fc-green">Joined Bug Bounty Platform 'Hackingzone' team</h2>
                 <h3 class="color-fc-light-grey my-0">Dec 2019</h3>
                 <div class="mt-3"></div>
@@ -206,7 +211,7 @@
             <div class="content right-line space"></div>
             <div class="content right-line space"></div>
             <div class="content right-line d-flex flex-justify-end">
-              <div class="detail"  data-idx="4">
+              <div class="detail" data-idx="5" >
                 <h2 class="fc-green">Promoted to Senior Engineer</h2>
                 <h3 class="color-fc-light-grey my-0">Mar 2021</h3>
                 <div class="mt-3"></div>
@@ -215,7 +220,7 @@
             <div class="content right-line space"></div>
             <div class="content right-line space"></div>
             <div class="content right-line d-flex flex-justify-end">
-              <div class="detail" data-idx="5">
+              <div class="detail" >
                 <h2 class="fc-green">The Hackingzone was approved for spin-off and seed funding by Samsung SDS</h2>
                 <h3 class="color-fc-light-grey my-0">Aug 2021</h3>
                 <div class="mt-3"></div>
@@ -237,7 +242,7 @@
           </div>
           <div class="position-relative">
             <div class="content d-flex flex-column flex-items-center">
-              <h1 class="fc-usa popupAnimate">Hello</h1>
+              <h1 class="popupAnimate fc-usa">Hello, Seattle </h1>
               <div class="spaceNeedle popupAnimate">
                 <svg x="0px" y="0px" viewBox="0 0 480 480" xml:space="preserve">
                   <g>
@@ -271,24 +276,43 @@
     </section>
     <section id="work" class="d-flex flex-column" data-idx="3">
       <h1 class="work__title popupAnimate">Work</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora molestias id soluta eligendi corrupti quaerat quibusdam hic voluptatibus voluptate, repellendus adipisci veritatis, ratione
-        itaque at provident eveniet harum explicabo illum repudiandae? Ex velit doloremque saepe cupiditate deserunt eius quo beatae placeat iusto neque, facere, itaque necessitatibus cumque amet
-        ipsam architecto animi accusamus voluptates tempora odit et reprehenderit ad? Magnam temporibus pariatur veritatis itaque ex modi cum iure sit, at ipsam nemo quasi, ratione laborum impedit
-        illo recusandae ipsa officiis fugit explicabo doloribus veniam. Laboriosam corrupti officiis ut reiciendis, rerum at sed, obcaecati omnis quidem amet consequuntur repudiandae ex non,
-        recusandae voluptas quos quis nostrum nisi enim aliquam. Corrupti minima, accusamus est dolore illo excepturi dolor natus illum aspernatur vitae obcaecati sint culpa officia accusantium. Fuga
-        laudantium odit autem labore, cupiditate assumenda adipisci repellendus harum? Perspiciatis labore eligendi eos at repudiandae, delectus officia qui iure natus soluta nobis nisi tempora
-        obcaecati ipsum ex quia unde voluptate odit rem suscipit numquam voluptates exercitationem quae pariatur? Alias non itaque tempora, officia, voluptatibus error quas dicta et obcaecati sapiente
-        corporis quia, animi asperiores omnis incidunt dolore maxime laudantium expedita sint rem? Aut doloribus, iste odit debitis optio eius exercitationem veniam fugiat in blanditiis sint quasi
-        enim distinctio dolorum recusandae nobis et, asperiores quidem repudiandae harum saepe tenetur molestiae officia dicta. Nisi impedit asperiores ut architecto! Et mollitia id fuga repellendus
-        saepe facere voluptatibus incidunt, sint molestias sequi delectus vel modi nulla magnam nihil deleniti dolorem eligendi rerum explicabo atque illo. Eveniet voluptatem soluta cumque officiis
-        earum. Velit ad exercitationem distinctio rerum earum alias provident aliquid sint ipsa, omnis repudiandae vitae suscipit minima quidem accusamus impedit, quaerat nobis id quam rem nemo
-        maiores quis reiciendis! Dignissimos reprehenderit voluptate impedit incidunt recusandae, fugit nesciunt velit rem alias delectus vero ipsa sequi, in accusamus nisi itaque quasi!
-      </p>
-      <h4>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat dolore, dolor, ratione veniam doloribus porro voluptate explicabo error odio blanditiis magni quod pariatur saepe facere commodi
-        necessitatibus asperiores reprehenderit obcaecati.
-      </h4>
+      <div class="work__contentContainer d-flex flex-justify-center">
+        <div class ="work__imgContainer d-flex flex-justify-center px-3">
+          <img src="imgs/3.png" alt="about_img" class="about_img">
+        </div>
+        <div class=" text-align-right d-flex flex-column flex-justify-between">
+          <h2 class="work__contentTitle">Hackingzone</h2>
+          <h3 class="work__contentDesc mt-0">Bug bounty Platform. Getting bugs, especially those pertaining to security exploits and vulnerabilities from hackers </h3>
+          <div class="work__skills d-flex flex-justify-between">
+            <div class="work__skill">Vue.js </div>
+            <div class="work__skill">Node.js</div>
+            <div class="work__skill">Express.js</div>
+            <div class="work__skill">MongoDB</div>
+            <div class="work__skill">Docker</div>
+            <div class="work__skill">VDI</div>
+          </div>
+          <div class="work__links d-flex">
+            <a href="http://hackingzone.net" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="work__contentContainer mt-16 d-flex flex-justify-center">
+        <div class ="work__imgContainer d-flex flex-justify-center px-3">
+          <img src="imgs/3.png" alt="about_img" class="about_img">
+        </div>
+        <div class=" text-align-right d-flex flex-column flex-justify-between">
+          <h2 class="work__contentTitle">Web Portfolio</h2>
+          <h3 class="work__contentDesc mt-0">Having Struggled with understanding Vanilla JS, CSS and HTML. No Framework, No library. Curently, I'm refactoring this web for modularity and implementing high-performance animations.</h3>
+          <div class="work__skills d-flex flex-justify-between">
+            <div class="work__skill">Vanilla JS</div>
+            <div class="work__skill">HTML</div>
+            <div class="work__skill">CSS</div>
+          </div>
+          <div class="work__links d-flex">
+            <a href="http://github.com/ChrisChoi3131/webPortfolio" target="_blank"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </div>
     </section>
     <section id="testimonials" class="d-flex flex-column" data-idx="4">
       <h1 class="testimonials__title popupAnimate">Testimonials</h1>
